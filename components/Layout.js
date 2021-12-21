@@ -50,7 +50,6 @@ const Layout = ({ title, description, children }) => {
   });
 
   const darkModeChangeHandler = () => {
-    console.log("clicked");
     dispatch({
       type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON",
     });
@@ -65,7 +64,7 @@ const Layout = ({ title, description, children }) => {
         {description && <meta name="description" content={description}></meta>}
       </Head>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
+        <CssBaseline enableColorScheme />
         <AppBar position="static" className={classes.navbar}>
           <Toolbar>
             <NextLink href="/" passHref>
