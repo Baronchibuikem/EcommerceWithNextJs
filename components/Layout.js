@@ -34,9 +34,6 @@ const Layout = ({ title, description, children }) => {
         fontWeight: 400,
         margin: "1rem 0",
       },
-      body1: {
-        fontWeight: "normal",
-      },
     },
     palette: {
       mode: darkMode ? "dark" : "light",
@@ -64,7 +61,7 @@ const Layout = ({ title, description, children }) => {
         {description && <meta name="description" content={description}></meta>}
       </Head>
       <ThemeProvider theme={theme}>
-        <CssBaseline enableColorScheme />
+        <CssBaseline />
         <AppBar position="static" className={classes.navbar}>
           <Toolbar>
             <NextLink href="/" passHref>
