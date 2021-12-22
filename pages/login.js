@@ -38,7 +38,7 @@ export default function Login() {
         password,
       });
       dispatch({ type: "USER_LOGIN", payload: data });
-      Cookies.set("userInfo", data);
+      Cookies.set("userInfo", JSON.stringify(data));
       router.push(redirect || "/");
     } catch (error) {
       alert(error.response.data ? error.response.data.message : error.message);
@@ -80,7 +80,7 @@ export default function Login() {
           </ListItem>
           <ListItem>
             Don't gave an account? &nbsp;
-            <NextLink href="/register" passHref>
+            <NextLink href={`/register?redirect=${redirect || "/"}`} passHref>
               <Link>Register</Link>
             </NextLink>
           </ListItem>
