@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import dynamic from "next/dynamic";
+import Layout from "../components/Layout";
+import { app_store } from "../utils/Store";
+import NextLink from "next/link";
+import Image from "next/image";
 import {
   Grid,
-  TableBody,
   TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
   Table,
+  Typography,
+  TableHead,
+  TableBody,
+  TableRow,
   TableCell,
   Link,
   Select,
@@ -16,13 +20,9 @@ import {
   Card,
   List,
   ListItem,
-} from "@mui/material";
-import Layout from "../components/Layout";
-import { app_store } from "../utils/Store";
-import NextLink from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
+} from "@material-ui/core";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 function CartScreen() {
   const router = useRouter();
@@ -30,7 +30,6 @@ function CartScreen() {
   const {
     cart: { cartItems },
   } = state;
-
   const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
@@ -45,7 +44,6 @@ function CartScreen() {
   const checkoutHandler = () => {
     router.push("/shipping");
   };
-
   return (
     <Layout title="Shopping Cart">
       <Typography component="h1" variant="h1">
@@ -53,10 +51,13 @@ function CartScreen() {
       </Typography>
       {cartItems.length === 0 ? (
         <div>
-          Card is empty. <NextLink href="/">Go shopping</NextLink>
+          Cart is empty.{" "}
+          <NextLink href="/" passHref>
+            <Link>Go shopping</Link>
+          </NextLink>
         </div>
       ) : (
-        <Grid container spacing={4}>
+        <Grid container spacing={1}>
           <Grid item md={9} xs={12}>
             <TableContainer>
               <Table>
