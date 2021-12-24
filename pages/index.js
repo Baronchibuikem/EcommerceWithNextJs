@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { Grid, Link, Typography } from "@material-ui/core";
 import Layout from "../components/Layout";
 import db from "../utils/db";
-import Product from "../models/Products";
+import Product from "../models/Product";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useContext } from "react";

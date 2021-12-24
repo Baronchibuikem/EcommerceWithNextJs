@@ -46,14 +46,17 @@ export default function Shipping() {
       type: "SAVE_SHIPPING_ADDRESS",
       payload: { fullName, address, city, postalCode, country, location },
     });
-    Cookies.set("shippingAddress", {
-      fullName,
-      address,
-      city,
-      postalCode,
-      country,
-      location,
-    });
+    Cookies.set(
+      "shippingAddress",
+      JSON.stringify({
+        fullName,
+        address,
+        city,
+        postalCode,
+        country,
+        location,
+      })
+    );
     router.push("/payment");
   };
 
@@ -67,14 +70,17 @@ export default function Shipping() {
       type: "SAVE_SHIPPING_ADDRESS",
       payload: { fullName, address, city, postalCode, country },
     });
-    Cookies.set("shippingAddress", {
-      fullName,
-      address,
-      city,
-      postalCode,
-      country,
-      location,
-    });
+    Cookies.set(
+      "shippingAddress",
+      JSON.stringify({
+        fullName,
+        address,
+        city,
+        postalCode,
+        country,
+        location,
+      })
+    );
     router.push("/map");
   };
   return (

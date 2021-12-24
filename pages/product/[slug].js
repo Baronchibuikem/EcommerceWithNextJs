@@ -12,7 +12,7 @@ import {
   Button,
 } from "@mui/material";
 import useStyles from "../../utils/styles";
-import Product from "../../models/Products";
+import Product from "../../models/Product";
 import db from "../../utils/db";
 import { app_store } from "../../utils/Store";
 import axios from "axios";
